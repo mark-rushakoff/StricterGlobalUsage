@@ -1,4 +1,4 @@
 require 'rspec'
-require 'stricter_global_usage/version'
+require 'stricter_global_usage'
 
 include StricterGlobalUsage

@@ -7,7 +7,8 @@
 
 == Description
 
-TODO: Description
+There are several methods in Ruby that use a default argument of a global variable.
+stricter_global_usage will raise an exception (default behavior) or give a runtime warning when you use a function and its argument falls back to the global variable - because chances are, that's not the behavior you intended.
 
 == Features
 
@@ -25,4 +26,4 @@ TODO: Description
 
 Copyright (c) 2012 Mark Rushakoff
 
-See LICENSE.txt for details.
+Available under the terms of the MIT license.

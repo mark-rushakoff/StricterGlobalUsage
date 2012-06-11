@@ -5,7 +5,7 @@ require File.expand_path('../lib/stricter_global_usage/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "stricter_global_usage"
   gem.version       = StricterGlobalUsage::VERSION
-  gem.summary       = %q{TODO: Summary}
+  gem.summary       = %q{Raises exceptions or runtime warnings when calling methods whose arguments default to global variables.}
   gem.description   = %q{TODO: Description}
   gem.license       = "MIT"
   gem.authors       = ["Mark Rushakoff"]
