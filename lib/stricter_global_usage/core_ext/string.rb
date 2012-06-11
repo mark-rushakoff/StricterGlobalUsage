@@ -1,4 +1,4 @@
-require 'stricter_global_usage/default_global_variable_used'
+require 'stricter_global_usage/strategy'
 
 class String
   alias_method :split_without_global_check, :split
