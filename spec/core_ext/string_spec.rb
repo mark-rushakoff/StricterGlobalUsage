@@ -3,10 +3,12 @@ require 'spec_helper'
 describe 'stricter_global_usage/core_ext/string' do
   describe '#split' do
     it 'raises when called without an argument' do
-      expect { '1,2,3,4,5'.split }.to raise_error(StricterGlobalUsage::DefaultGlobalVariableUsed)
+      StricterGlobalUsage::Strategy.should_receive(:apply).once
+      '1,2,3,4,5'.split
     end
 
     it 'works like the example in the Ruby docs' do
+      StricterGlobalUsage::Strategy.should_receive(:apply).exactly(0).times
       " now's  the time".split(nil).should == ["now's", "the", "time"]
       " now's  the time".split(' ').should == ["now's", "the", "time"]
       "1, 2.34,56, 7".split(%r{,\s*}).should == ["1", "2.34", "56", "7"]
