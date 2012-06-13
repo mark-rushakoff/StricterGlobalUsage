@@ -1,5 +1,7 @@
 = stricter_global_usage
 
+{<img src="https://secure.travis-ci.org/mark-rushakoff/StricterGlobalUsage.png?branch=master" />}[http://travis-ci.org/mark-rushakoff/StricterGlobalUsage]
+
 * {Homepage}[https://github.com/mark-rushakoff/stricter_global_usage#readme]
 * {Issues}[https://github.com/mark-rushakoff/stricter_global_usage/issues]
 * {Documentation}[http://rubydoc.info/gems/stricter_global_usage/frames]
