@@ -15,14 +15,16 @@ module StricterGlobalUsage
     @name = nil
 
     # Apply the current strategy (warns, raises an exception, or does something else the user chose).
-    def self.apply
-      @strategies[@name].call
+    # When you call apply yourself, you are expected to supply the name of the method as (e.g.) 'Dog#bark'.
+    def self.apply(method)
+      @strategies[@name].call(method)
     end
 
-    # Create a new strategy.
+    # Create a new strategy. When that strategy is applied, it will be passed
+    # in information about the call to Strategy.apply.
     #
-    #   ::StricterGlobalUsage::Strategy.add(:my_log) do
-    #     MyLogger.log('Used a function whose argument fell back to a global variable')
+    #   ::StricterGlobalUsage::Strategy.add(:my_log) do |method_name|
+    #     MyLogger.log("Used #{method_name} whose argument fell back to a global variable")
     #   end
     def self.add(name, &block)
       @strategies[name] = block
@@ -51,15 +53,15 @@ module StricterGlobalUsage
       end
     end
 
-    add(:raise) do
-      raise ::StricterGlobalUsage::DefaultGlobalVariableUsed
+    add(:raise) do |method_name|
+      raise ::StricterGlobalUsage::DefaultGlobalVariableUsed.new(method_name)
     end
 
-    add(:warn) do
-      ::Kernel.warn('Called a method that used a default argument of a global variable')
+    add(:warn) do |method_name|
+      ::Kernel.warn("Called #{method_name} that used a default argument of a global variable")
     end
 
-    add(:silent) { }
+    add(:silent) { |_| }
 
     use(:raise)
   end

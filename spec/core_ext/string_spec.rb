@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'stricter_global_usage/core_ext/string' do
   describe '#split' do
     it 'applies the strategy when called without an argument' do
-      StricterGlobalUsage::Strategy.should_receive(:apply).once
+      StricterGlobalUsage::Strategy.should_receive(:apply).once.with('String#split')
       '1,2,3,4,5'.split
     end
 

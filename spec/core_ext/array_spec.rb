@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'stricter_global_usage/core_ext/array' do
   describe '#join' do
     it 'applies the strategy when called without an argument' do
-      StricterGlobalUsage::Strategy.should_receive(:apply).once
+      StricterGlobalUsage::Strategy.should_receive(:apply).once.with('Array#join')
       %w(foo bar).join
     end
 
