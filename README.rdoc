@@ -13,11 +13,29 @@ stricter_global_usage will raise an exception (default behavior) or give a runti
 
 == Features
 
+Currently, StricterGlobalUsage wraps Array#join and String#split, applying the specified strategy if one of those methods is called without explicit arguments.
+
 == Examples
 
   require 'stricter_global_usage'
 
+  # default behavior:
+  %w(cat dog).join # => raises exception!
+  %w(cat dog).join($,) # => explictly uses default global variable
+
+  # warn instead of raising exceptions
+  ::StricterGlobalUsage::Strategy.use(:warn)
+  'one two'.split # => warns, but effectively the same as `'one two'.split($;)`
+
+  # temporarily use a different strategy
+  ::StricterGlobalUsage::Strategy.with(:silent) do
+    'one two'.split # => will not raise or warn
+  end
+  %w(cat dog).join # => will warn again
+
 == Requirements
+
+StricterGlobalUsage does not depend on any other gems.
 
 == Install
 
