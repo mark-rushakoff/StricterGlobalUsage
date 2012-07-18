@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.name          = "stricter_global_usage"
   gem.version       = StricterGlobalUsage::VERSION
   gem.summary       = %q{Raises exceptions or runtime warnings when calling methods whose arguments default to global variables.}
-  gem.description   = %q{TODO: Description}
+  gem.description   = %q{Raises exceptions or runtime warnings when calling methods whose arguments default to global variables.}
   gem.license       = "MIT"
   gem.authors       = ["Mark Rushakoff"]
   gem.email         = "mark.rushakoff@gmail.com"
