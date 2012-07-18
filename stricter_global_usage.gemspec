@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.license       = "MIT"
   gem.authors       = ["Mark Rushakoff"]
   gem.email         = "mark.rushakoff@gmail.com"
-  gem.homepage      = "https://github.com/mark-rushakoff/stricter_global_usage#readme"
+  gem.homepage      = "https://github.com/mark-rushakoff/StricterGlobalUsage/#readme"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
